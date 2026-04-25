@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sravani!</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffeef2;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+        h1 { color: #d63384; font-size: 2.5rem; }
+        .buttons { margin-top: 20px; position: relative; width: 300px; height: 100px; }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yesBtn { background-color: #ff4d6d; color: white; margin-right: 10px; }
+        #noBtn { background-color: #adb5bd; color: white; position: absolute; }
+        .hidden { display: none; }
+        #message { font-size: 1.5rem; color: #ff4d6d; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div id="quiz">
+        <h1>Happy Birthday, Sravani! 🎂</h1>
+        <p>You make the world a better place just by being in it.</p>
+        <h2>Do you love me?</h2>
+        
+        <div class="buttons">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+    </div>
+
+    <div id="result" class="hidden">
+        <h1>Yay! ❤️</h1>
+        <p id="message">I knew it! Have the best birthday ever, Sravani!</p>
+        <div style="font-size: 50px;">🎁🎈✨</div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const quiz = document.getElementById('quiz');
+        const result = document.getElementById('result');
+
+        // Make the "No" button run away
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        });
+
+        // Handle "Yes" click
+        yesBtn.addEventListener('click', () => {
+            quiz.classList.add('hidden');
+            result.classList.remove('hidden');
+            confetti();
+        });
+
+        function confetti() {
+            // Simple visual effect could be added here
+            console.log("Success! Sravani said yes.");
+        }
+    </script>
+</body>
+</html>
